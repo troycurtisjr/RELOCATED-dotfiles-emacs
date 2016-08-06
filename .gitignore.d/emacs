@@ -1,0 +1,10 @@
+*
+!/.emacs.d
+!/.emacs.d/
+!/.emacs.d/*
+!/.emacs.d/**
+!/.gitignore.d
+!/.gitignore.d/emacs
+!/.spacemacs.d
+!/.spacemacs.d/
+!/.spacemacs.d/**
