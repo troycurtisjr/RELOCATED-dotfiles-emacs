@@ -27,6 +27,14 @@
 </p>
 ***
 
+**Personal Fork**
+This is my personal sorta-fork of spacemacs.  It is rooted at my home directory level (thus
+includes .emacs.d and .spacemacs.d) and the various modules are also added to the repository.
+This allows easy use in air-gapped systems where I can have everything I need without a
+live internet connection.  As such if you run across this and want to try, the instructions
+below aren't actually usable.  Instead, I use vcsh to configuration manage my "dotfiles", and
+so I would suggest using that tool to clone this repo into your home directory.
+
 **Quick Install:**
 
     git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
