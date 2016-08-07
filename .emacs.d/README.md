@@ -27,8 +27,9 @@
 </p>
 ***
 
-**Personal Fork**
-This is my personal sorta-fork of spacemacs.  It is rooted at my home directory level (thus
+# Personal Fork
+
+**Note:** This is my personal sorta-fork of spacemacs.  It is rooted at my home directory level (thus
 includes .emacs.d and .spacemacs.d) and the various modules are also added to the repository.
 This allows easy use in air-gapped systems where I can have everything I need without a
 live internet connection.  As such if you run across this and want to try, the instructions
