@@ -268,6 +268,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq-default
    c-basic-offset 2)
   (setq-default tab-width 2)
+
+  ;; (defun my-c++-mode-hook ()
+  ;;   (c-set-offset 'innamespace 0)
+  ;;   )
+  ;; (add-hook 'c++-mode-hook 'my-c++-mode-hook)
   )
 
 (defun dotspacemacs/user-config ()
@@ -278,6 +283,47 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq vinegar-reuse-dired-buffer t)
+  (add-hook
+   'c-mode-common-hook
+   '(lambda()
+     ;; Do not check for old-style (K&R) function declarations, supposedly
+     ;; this speeds up indentation a lot
+     (setq c-recognize-knr-p nil)
+     (c-set-offset 'case-label '+)
+     (c-set-offset 'arglist-cont-nonempty
+                   '(c-lineup-gcc-asm-reg c-lineup-argcont (c-lineup-arglist-operators 1) c-lineup-arglist))
+     (c-set-offset 'arglist-cont
+                   '(c-lineup-argcont (c-lineup-arglist-operators 1)))
+     (c-set-offset 'arglist-close
+                   '(c-lineup-arglist-close-under-paren))
+     (c-set-offset 'statement-cont
+                   '(c-lineup-cascaded-calls c-lineup-assignments 0))
+     (modify-syntax-entry ?_ "w" )
+     )
+  )
+
+  (defun followed-by (cases)
+    (cond ((null cases) nil)
+          ((assq (car cases)
+                 (cdr (memq c-syntactic-element c-syntactic-context))) t)
+          (t (followed-by (cdr cases)))))
+
+  (add-hook
+   'c++-mode-hook
+   '(lambda()
+      (c-set-offset  'access-label  '-)
+      (c-set-offset  'topmost-intro 0)
+      (c-set-offset  'inclass       '++)
+      (c-set-offset  'innamespace   0)
+      ;; (c-set-offset  'innamespace
+      ;;                (lambda (x)
+      ;;                  (if (followed-by
+      ;;                       '(innamespace namespace-close)) 0 '+)
+      ;;                  )
+      ;;                )
+      )
+   )
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
