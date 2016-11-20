@@ -8,4 +8,5 @@
 !/.spacemacs.d
 !/.spacemacs.d/
 !/.spacemacs.d/**
+!/README.emacs.md
 session.*
