@@ -1,1 +1,0 @@
-(define-package "persp-mode" "20160805.431" "windows/buffers sets shared among frames + save/load." 'nil :url "https://github.com/Bad-ptr/persp-mode.el" :keywords '("perspectives" "session" "workspace" "persistence" "windows" "buffers" "convenience"))
